@@ -1,5 +1,5 @@
 '''Définition des variables'''
-motAleat = ["C", "R", "A", "Y", "O", "N"]
+motAleat = ["X", "X", "X", "X", "X", "X"]
 lettre = ["X","X","X","X","X","X"]
 lettreCorrecte = [0,0,0,0,0,0]
 lettrePresente = [0,0,0,0,0,0]
@@ -72,7 +72,7 @@ if (numero == 9):
 if (numero == 10):
 	motAleat = ["N","A","V","I","R","E"]
 while gameOn == 1 :
-	if (compteur < 9):
+	if (compteur < 8):
 		choix(lettre)
 		presence(lettre, motAleat, lettrePresente)
 		correcte(lettre, motAleat, lettreCorrecte)
@@ -83,7 +83,8 @@ while gameOn == 1 :
 		print(Style.RESET_ALL)
 		lettreCorrecte = [0,0,0,0,0,0]
 		lettrePresente = [0,0,0,0,0,0]
-	elif (compteur == 9) : 
+		compteur = compteur + 1
+	if (compteur == 7) : 
 		print("Vous n'avez plus d'éssais ! C'est perdu ! Le mot était", motAleat," , dommage !")
 		gameOn = 0
 input()
