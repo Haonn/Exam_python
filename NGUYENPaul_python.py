@@ -25,7 +25,13 @@ def correcte (lettre,motAleat,lettreCorrecte):
 	return lettreCorrecte
 
 '''Programme princpial'''
+
+'''Initialisation'''
 import random 
+from colorama import init
+init()
+from colorama import Fore, Back, Style 
+
 numero = random.randint(1,10)
 if (numero == 1):
 	motAleat = ["C","R","A","Y","O","N"]
@@ -47,5 +53,19 @@ if (numero == 9):
 	motAleat = ["N","A","R","V","A","L"]
 if (numero == 10):
 	motAleat = ["N","A","V","I","R","E"]
-print (motAleat)
+
+'''Boucle de jeu'''
+
+choix(lettre)
+correcte(lettre, motAleat, lettreCorrecte)
+
+def affichage (lettre, lettreCorrecte, lettrePresente):
+	for i in range (0,6) : 
+		if (lettreCorrecte[i] == 1) : 
+			print(Back.RED + lettre[i], end=" ") 
+		elif (lettrePresente[i] < 0) :
+			print(Back.YELLOW + lettre[i], end = " " )
+		else :
+			print(Back.BLUE + lettre [i], end = " ")
+affichage(lettre, lettreCorrecte, lettrePresente)
 input()
