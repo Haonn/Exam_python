@@ -3,7 +3,8 @@ motAleat = ["C", "R", "A", "Y", "O", "N"]
 lettre = ["X","X","X","X","X","X"]
 lettreCorrecte = [0,0,0,0,0,0]
 lettrePresente = [0,0,0,0,0,0]
-
+gameOn = 1
+compteur = 0
 '''Définition des fonctions'''
 
 '''Fonction de choix des lettres par l'utilisateur '''
@@ -70,12 +71,19 @@ if (numero == 9):
 	motAleat = ["N","A","R","V","A","L"]
 if (numero == 10):
 	motAleat = ["N","A","V","I","R","E"]
-print(motAleat)
-choix(lettre)
-presence(lettre, motAleat, lettrePresente)
-correcte(lettre, motAleat, lettreCorrecte)
 
-affichage(lettre, lettreCorrecte, lettrePresente)
-    
+while gameOn == 1 :
+	if (compteur < 9):
+		choix(lettre)
+		presence(lettre, motAleat, lettrePresente)
+		correcte(lettre, motAleat, lettreCorrecte)
+		affichage(lettre, lettreCorrecte, lettrePresente)
+		print(Style.RESET_ALL)
+		lettreCorrecte = [0,0,0,0,0,0]
+		lettrePresente = [0,0,0,0,0,0]
+	elif (compteur == 9) : 
+		print("Vous n'avez plus d'éssais ! C'est perdu ! Le mot était", motAleat," , dommage !")
+		gameOn = 0
 input()
+
 
