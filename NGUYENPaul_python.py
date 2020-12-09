@@ -24,6 +24,23 @@ def correcte (lettre,motAleat,lettreCorrecte):
 			lettreCorrecte[i]=+1
 	return lettreCorrecte
 
+def presence (lettre,motAleat, lettrePresente):
+    for i in range (0,6):
+        for j in range (0,6):
+            if (lettre[i]==motAleat[j]) : 
+                lettrePresente[i] =+ 1
+                
+'''Fonction permettant de détecter si une lettre proposée fait partie du mot'''
+def affichage (lettre, lettreCorrecte, lettrePresente):
+	for i in range (0,6) : 
+		if (lettreCorrecte[i] == 1) : 
+			print(Back.RED + lettre[i], end=" ") 
+		elif (lettrePresente[i] > 0) :
+			print(Back.YELLOW + lettre[i], end = " " )
+		else :
+			print(Back.BLUE + lettre [i], end = " ")
+	return ()
+
 '''Programme princpial'''
 
 '''Initialisation'''
@@ -53,19 +70,12 @@ if (numero == 9):
 	motAleat = ["N","A","R","V","A","L"]
 if (numero == 10):
 	motAleat = ["N","A","V","I","R","E"]
-
-'''Boucle de jeu'''
-
+print(motAleat)
 choix(lettre)
+presence(lettre, motAleat, lettrePresente)
 correcte(lettre, motAleat, lettreCorrecte)
 
-def affichage (lettre, lettreCorrecte, lettrePresente):
-	for i in range (0,6) : 
-		if (lettreCorrecte[i] == 1) : 
-			print(Back.RED + lettre[i], end=" ") 
-		elif (lettrePresente[i] < 0) :
-			print(Back.YELLOW + lettre[i], end = " " )
-		else :
-			print(Back.BLUE + lettre [i], end = " ")
 affichage(lettre, lettreCorrecte, lettrePresente)
+    
 input()
+
