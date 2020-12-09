@@ -71,13 +71,15 @@ if (numero == 9):
 	motAleat = ["N","A","R","V","A","L"]
 if (numero == 10):
 	motAleat = ["N","A","V","I","R","E"]
-
 while gameOn == 1 :
 	if (compteur < 9):
 		choix(lettre)
 		presence(lettre, motAleat, lettrePresente)
 		correcte(lettre, motAleat, lettreCorrecte)
 		affichage(lettre, lettreCorrecte, lettrePresente)
+		if (lettreCorrecte[0] == 1 and lettreCorrecte[1] == 1 and lettreCorrecte[2] == 1 and lettreCorrecte[3] == 1 and lettreCorrecte[4] == 1 and lettreCorrecte[5] == 1) :
+			print("GAGNE!!! Félicitations")
+			gameOn = 0
 		print(Style.RESET_ALL)
 		lettreCorrecte = [0,0,0,0,0,0]
 		lettrePresente = [0,0,0,0,0,0]
